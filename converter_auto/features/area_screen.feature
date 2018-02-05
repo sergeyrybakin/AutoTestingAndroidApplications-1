@@ -5,10 +5,10 @@ Feature: User is able to convert area units
     Given I click on "Закрыть" button
     And I land on "Площадь" screen
 
-  Scenario: User is able to dismiss help
-    Given I land on "Помощь" popup
-    When I click on "Закрыть" button
-    Then I land on "Площадь" screen
+#  Scenario: User is able to dismiss help
+#    Given I land on "Помощь" popup
+#    When I click on "Закрыть" button
+#    Then I land on "Площадь" screen
 
   Scenario: User is able to swap values
     Given I see "Кв. километр" in From header
@@ -25,8 +25,8 @@ Feature: User is able to convert area units
 
     Examples:
     |target|result|
-#    |1|1.000.000|
-#    |12|12.000.000|
+    |1|1.000.000|
+    |12|12.000.000|
     |0.4|400.000|
 
   Scenario: User is able to use soft keyboard to enter values
@@ -39,3 +39,10 @@ Feature: User is able to convert area units
     When I select "Гектар" from left column
     Then I see "Гектар" in From header
     And I get "10.000" in To field
+
+  Scenario: User is able to see Help area
+    Given I click on 3 vertical dots button
+    And I land on FrameLayout screen
+    When I select "Помощь" on FrameLayout screen
+    Then I see "Помощь" on FrameLayout screen
+    And I click on "Закрыть" button
