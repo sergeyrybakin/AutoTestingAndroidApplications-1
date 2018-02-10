@@ -10,7 +10,7 @@ Feature: User is able to convert area units
 #    When I click on "Got It" button
 #    Then I land on "Area" screen
 
-
+@wip
   Scenario: User is able to swap values
     Given I see "Sq Kilometre" in From header
     And I see "Sq Metre" in To header
@@ -40,7 +40,6 @@ Feature: User is able to convert area units
     Then I see "Hectare" in From header
     And I get "10000" in To field
 
-  @wip
   Scenario: User is able to see Help area
     Given I click on 3 vertical dots button
     And I land on FrameLayout screen

@@ -57,11 +57,13 @@ end
 And(/^I press "([^"]*)" on soft keyboard$/) do |value|
   digits = value.split("")
   digits.each do |key|
-    if key != "."
+    if key == '.'
+      press_keycode 158
+    elsif key == '-'
+      press_keycode 156
+    else
       digit = Integer(key)
       press_keycode 7 + digit
-    else
-      press_keycode 158
     end
   end
 end
@@ -90,4 +92,8 @@ Then (/^I see "([^"]*)" on FrameLayout screen$/) do |value|
   if actual_value != value
     fail("Expected value is #{value}, but actual value is #{actual_value}")
   end
+end
+
+And(/^I select "([^"]*)" from right column$/) do |value|
+  find_element(id: "radio_group_to").find_element(xpath: "//android.widget.RadioButton[@text='#{value}']").click
 end
